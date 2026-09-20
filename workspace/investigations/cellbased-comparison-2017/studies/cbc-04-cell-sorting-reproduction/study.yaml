@@ -272,3 +272,57 @@ pipeline_gate:
     blocked_by: []
     evaluated_by: code
     diverges_from_authored: false
+
+# Decide-phase three-track verdict (hardening pass, 2026-09-20). Separates the
+# qualitative reproduction (solid) from the quantitative within-spread claim
+# (single-seed, not yet proven).
+conclusion_verdicts:
+  regression_compatibility:
+    result: PASS
+    basis: |
+      All four reachable models (CP/OS/VT/VM) build and run cleanly against chaste/pychaste. The
+      C++ baseline and PyChaste outputs are committed (heterotypicboundary.dat per model,
+      comparison_table.csv, fractional_length.png) and compare.py reruns the divergence metrics
+      from them.
+  biological_validation:
+    result: MIXED
+    basis: |
+      QUALITATIVE reproduction confirmed: the paper's Fig-3 ordering (VT stalls > VM > CP > OS
+      sorts most) is reproduced for all four PyChaste models and every endpoint falls below the
+      post-labelling interface — driven by the identical Chaste differential-adhesion C++ classes.
+      QUANTITATIVE "within run-to-run spread" is NOT yet proven: both sides are single-seed
+      (seed 0), so no run-to-run spread is measured on EITHER side and the acceptance band the
+      hypothesis names ("within 10-seed spread") is undefined. OS diverges max 0.147 where the
+      DiffusionForce-for-RandomMotionForce substitution matters most. See follow-up
+      seed-sweep-quantify-spread.
+  explanatory_gain:
+    result: POSITIVE
+    basis: |
+      Established that binding coverage, not modelling fidelity, is the binding constraint: CA is
+      unreachable (custom switching rule, no constructible PyChaste base) and VT cannot use
+      DiffusionForce (per-step remesh discards the node radii it needs, cbc-03) — both real
+      mechanical limits, not tuning gaps.
+
+limitations: |
+  Single-seed comparison (seed 0) on both sides: the quantitative "within run-to-run spread"
+  claim is inferred from small point differences, not proven against a measured spread. CA is out
+  of reach in PyChaste (binding-coverage finding, not a simulation result) and VT runs with no
+  random-motion term (DiffusionForce is mechanically incompatible with the VT remesh, cbc-03). The
+  OS residual (max 0.147) tracks the RandomMotionForce substitution and is the largest open
+  quantitative gap.
+
+followup_proposals:
+- id: seed-sweep-quantify-spread
+  title: "Quantify run-to-run spread with a multi-seed sweep"
+  status: proposed
+  motivation: |
+    The headline reproduction claim is "fractional-length trajectories track the C++ baseline to
+    within the authors' run-to-run spread", but cbc-01 and cbc-04 are each single-seed (seed 0).
+    No spread is measured on either side, so the acceptance band is undefined and the closest
+    divergence (OS, 0.147) cannot be judged as within-noise or a real refutation.
+  hypothesized_mechanism: |
+    Run >=10 seeds per model on BOTH sides (C++ baseline and PyChaste reproduction), summarise
+    each as a mean +/- run-to-run band, and re-express the per-model divergence as a z-score
+    against the pooled spread — converting the current single-seed close/partial verdicts into a
+    quantitative pass-or-refute (as cbc-03 already did for the free-diffusion MSD).
+

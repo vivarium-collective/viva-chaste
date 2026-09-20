@@ -81,6 +81,13 @@ executive:
 
     CA remains blocked: DifferentialAdhesionCaSwitchingUpdateRule is custom to the paper's
     repo, and AbstractCaSwitchingUpdateRule_2 exposes no constructor to subclass.
+
+    SCOPE (hardening pass, 2026-09-20): the quantitative claim rests on a single seed (seed 0)
+    on both the C++ and PyChaste sides, so the "within run-to-run spread" acceptance band is
+    not yet measured. The qualitative reproduction (Fig-3 ordering + adhesion-driven sorting) is
+    solid; the outstanding quantitative work is tracked as cbc-04 follow-up
+    seed-sweep-quantify-spread. Both decisions_needed below are now resolved with their
+    evidentiary basis recorded.
   decisions_needed:
   - question: "Accept 4-of-5 model coverage (CP, OS, VT, VM) and document CA as out of reach?"
     context: |
@@ -88,11 +95,36 @@ executive:
       compiled in and bound — a real C++/pybind/CMake effort, plausibly larger than the rest of
       this investigation combined. The alternative is to report CA as a binding-coverage finding
       rather than a simulation result. Deferred until cbc-04 lands the other four.
+    resolution: ACCEPTED
+    resolved_by: agent
+    resolved_at: '2026-09-20'
+    decided: |
+      Report 4-of-5 model coverage (CP, OS, VT, VM) as the reproduction result; document CA as a
+      binding-coverage finding, not a simulation result.
+    basis: |
+      The pre-implementation binding probe against chaste/pychaste:latest confirmed
+      DifferentialAdhesionCaSwitchingUpdateRule is custom to the paper's repo with no
+      constructible AbstractCaSwitchingUpdateRule base; a custom pybind/CMake image is plausibly a
+      larger effort than the rest of the investigation. cbc-04 landed the other four models; the
+      CA endpoint (frac 0.231) is retained from the C++ baseline for completeness.
   - question: "Is DiffusionForce-as-RandomMotionForce acceptable as the sanctioned substitute?"
     context: |
       The algebra matches exactly, but only if node radii are set on every node (DiffusionForce
       throws on radius 0, which is the default for vertex meshes) and damping is 1.0. cbc-03
       tests this numerically against the C++ reference before cbc-04 depends on it.
+    resolution: ACCEPTED (OS/VM); REJECTED (VT)
+    resolved_by: agent
+    resolved_at: '2026-09-20'
+    decided: |
+      DiffusionForce is the sanctioned RandomMotionForce substitute for OS and VM (calibrated
+      scaling = xi*radius, damping = 1.0); it is NOT usable for VT, which therefore runs with no
+      random-motion term.
+    basis: |
+      cbc-03 measured the free-diffusion MSD under DiffusionForce (0.383 vs 0.400 expected,
+      z = -0.56, MATCH), confirming equivalence in the free limit for OS/VM. VT's per-step remesh
+      discards the node radii DiffusionForce requires (mechanical refutation, not tuning).
+      Quantitative trajectory-level equivalence remains bounded by the single-seed comparison; see
+      cbc-04 follow-up seed-sweep-quantify-spread.
 
   computed_acceptance:
     verdict_status: passing
