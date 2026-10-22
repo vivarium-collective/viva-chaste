@@ -1,3 +1,16 @@
+# >>> viva-template-provenance >>>
+# This GitHub Actions workflow is GENERATED from viva-template. Do not edit
+# it by hand: your changes are lost the next time it is regenerated, and a
+# hand-edit is invisible to the drift guard.
+#
+# If viva-template's copy of this workflow changes, this file becomes STALE
+# and workspace CI flags it (scripts/check-workflow-freshness.py). Refresh by
+# re-scaffolding, or by copying the current source from
+#   vivarium-collective/viva-template/template/.github/workflows/<template>
+# template: publish-reports.yml
+# sha256: f62fab75fe45ba0b9fc752b589e7a27779074bd7e7b2a4df6b0c19daf0c2b465
+# <<< viva-template-provenance <<<
+
 name: Publish investigation reports
 
 # Regenerate every investigation's self-contained HTML report and publish it to
@@ -45,16 +58,12 @@ jobs:
         run: uv python install 3.12.9
 
       - name: Install dependencies (incl. vivarium-workbench)
-        # The `workspace` extra carries PyYAML + jinja2 + vivarium-workbench that
-        # scripts/publish_investigation_reports.py imports; without it the
-        # generate step dies on `ModuleNotFoundError: No module named 'yaml'`.
-        run: uv sync --extra dev --extra workspace || uv sync --extra dev || uv sync
+        run: uv sync --extra dev || uv sync
 
       - name: Install Playwright + Chromium
         run: |
           uv pip install playwright
-          source .venv/bin/activate
-          playwright install --with-deps chromium
+          uv run playwright install --with-deps chromium
 
       - name: Generate investigation reports
         id: gen
@@ -63,11 +72,7 @@ jobs:
         # Keep going on a per-report failure so good reports still publish.
         run: |
           set +e
-          # Use the synced venv directly, NOT `uv run` — `uv run` re-syncs to
-          # the project's base deps and drops the `dev`/`workspace` extras
-          # (PyYAML, vivarium-workbench, Playwright), which this script needs.
-          source .venv/bin/activate
-          python scripts/publish_investigation_reports.py \
+          uv run python scripts/publish_investigation_reports.py \
             --workspace . --out reports/published
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
