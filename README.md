@@ -13,12 +13,6 @@
 **[Open the read-only workbench](https://vivarium-collective.github.io/viva-chaste/workbench/)** to browse every composite, study, and result in your browser — or run it locally (below).
 <!-- END:dashboard -->
 
-<!-- BEGIN dashboard -->
-> ## 🔬 [Read-only workbench →](https://vivarium-collective.github.io/viva-chaste/dashboard/)
->
-> **The full vivarium-workbench, live in your browser — no install.** Every investigation, study, composite and simulation, browsable with no server. Prefer a written write-up? See the [investigation reports](https://vivarium-collective.github.io/viva-chaste/). Auto-published from `main` on every merge.
-<!-- END dashboard -->
-
 Process-bigraph wrapper for **[Chaste](https://github.com/Chaste/Chaste)** — the
 Cancer, Heart And Soft Tissue Environment simulator. It exposes Chaste's
 **multi-cellular** population methods and **sub-cellular** cell-cycle models as a
