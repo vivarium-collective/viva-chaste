@@ -1,7 +1,6 @@
 {
   "mode": "snapshot",
-  "smsApiBase": "",
   "repo": "https://github.com/vivarium-collective/viva-chaste",
-  "commit": "a01596bbe081409c5bc5c3581b25c44f6874f89d",
+  "commit": "d3b0bcfbb997b224ec491ad75853cffd5f39b579",
   "generated_from_ref": "main"
 }

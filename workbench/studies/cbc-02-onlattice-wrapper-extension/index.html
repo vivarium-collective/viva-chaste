@@ -16,17 +16,34 @@
 </head>
 <body>
 <main class="study-page">
+
+
 <header class="study-header">
-  <div style="display:flex; align-items:center; gap:14px; justify-content:space-between;">
+  <div style="display:flex; align-items:flex-start; gap:14px; justify-content:space-between;">
+  <div class="study-head-main" style="min-width:0; flex:1 1 auto">
   <div style="display:flex; align-items:center; gap:12px; min-width:0; flex-wrap:wrap">
   <h1 class="study-title" style="margin:0">
-    <span class="study-num-chip" style="font-size:0.5em; font-weight:700; color:#64748b; background:#f1f5f9; padding:3px 9px; border-radius:9999px; vertical-align:middle; margin-right:8px">cbc-02</span><span class="study-name" id="study-name" data-slug="cbc-02-onlattice-wrapper-extension" data-study-kind="computational" title="cbc-02-onlattice-wrapper-extension">On-lattice + differential-adhesion wrapper extension</span>
+    <span class="study-num-chip" style="font-size:0.5em; font-weight:700; color:#64748b; background:#f1f5f9; padding:3px 9px; border-radius:9999px; vertical-align:middle; margin-right:8px">cbc-02</span><span class="study-name" id="study-name" data-slug="cbc-02-onlattice-wrapper-extension" data-study-kind="computational" title="cbc-02-onlattice-wrapper-extension" data-edit-kind="study" data-edit-field="title" data-edit-value="On-lattice + differential-adhesion wrapper extension" data-edit-label="Title">On-lattice + differential-adhesion wrapper extension</span>
     
   </h1>
+  </div>
+  <p id="study-question-headline" class="study-question-headline" title="Can pbg-chaste&#39;s ChasteSimulationProcess be extended to cover the four model classes the
+paper&#39;s sorting study needs and PyChaste can reach — Potts (CP), overlapping spheres (OS),
+Voronoi-with-ghost-nodes (VT) and vertex (VM) — emitting fractional boundary length as a
+first-class observable?
+" data-edit-kind="study" data-edit-field="question" data-edit-value="Can pbg-chaste&#39;s ChasteSimulationProcess be extended to cover the four model classes the
+paper&#39;s sorting study needs and PyChaste can reach — Potts (CP), overlapping spheres (OS),
+Voronoi-with-ghost-nodes (VT) and vertex (VM) — emitting fractional boundary length as a
+first-class observable?
+" data-edit-multiline data-edit-label="Question"><span class="q-glyph">Q</span> <span class="study-question-headline-text">Can pbg-chaste&#39;s ChasteSimulationProcess be extended to cover the four model classes the
+paper&#39;s sorting study needs and PyChaste can reach — Potts (CP), overlapping spheres (OS),
+Voronoi-with-ghost-nodes (VT) and vertex (VM) — emitting fractional boundary length as a
+first-class observable?
+</span></p>
+  </div>
+  <span class="study-header-actions" style="display:inline-flex; gap:10px; flex-shrink:0; align-items:center;">
     
     <span id="study-axis-markers" data-slug="cbc-02-onlattice-wrapper-extension" style="display:inline-flex; gap:8px; align-items:center; flex-wrap:wrap"></span>
-  </div>
-  <span class="study-header-actions" style="display:inline-flex; gap:6px; flex-shrink:0; align-items:center;">
     
     
     
@@ -49,12 +66,6 @@
 
 
 
-
-<p id="study-question-headline" class="study-question-headline"><span class="q-glyph">Q</span> Can pbg-chaste&#39;s ChasteSimulationProcess be extended to cover the four model classes the
-paper&#39;s sorting study needs and PyChaste can reach — Potts (CP), overlapping spheres (OS),
-Voronoi-with-ghost-nodes (VT) and vertex (VM) — emitting fractional boundary length as a
-first-class observable?
-</p>
 
 <nav class="study-tabs" aria-label="Study sections">
   
@@ -84,10 +95,18 @@ first-class observable?
   </button>
   
   <span class="study-dl study-export-wrap" style="margin-left:auto; align-self:center; position:relative; display:inline-flex">
-    <button type="button" id="study-export-btn" class="btn-mini" aria-haspopup="true" aria-expanded="false" title="Download this study's figures or a runnable notebook">↓ Export ▾</button>
-    <div id="study-export-menu" role="menu" style="display:none;position:absolute;right:0;top:100%;margin-top:4px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.14);z-index:70;min-width:200px;padding:4px">
-      <button type="button" id="study-dl-figures" role="menuitem" class="study-jump-item" onclick="window._vivStudyFiguresFromCard(event, 'cbc-02-onlattice-wrapper-extension')">Download figures</button>
-      <button type="button" id="study-dl-notebook" role="menuitem" class="study-jump-item" onclick="window._vivStudyNotebookFromCard(event, 'cbc-02-onlattice-wrapper-extension', 'cellbased-comparison-2017')">Download notebook</button>
+    <button type="button" id="study-export-btn" class="btn-mini" aria-haspopup="true" aria-expanded="false" title="Shortcuts — open in the browser or download (report, notebook, figures)">Shortcuts ▾</button>
+    
+    <div id="study-export-menu" role="menu" style="display:none;position:absolute;right:0;top:100%;margin-top:4px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.14);z-index:70;min-width:190px;padding:4px">
+      <div class="study-export-sec">Report</div>
+      <button type="button" id="study-report-open" role="menuitem" class="btn-mini study-export-item" onclick="window._vivStudyReportOpen(event, 'cbc-02-onlattice-wrapper-extension')">Open in browser</button>
+      <button type="button" id="study-report-dl" role="menuitem" class="btn-mini study-export-item" onclick="window._vivStudyReportDownload(event, 'cbc-02-onlattice-wrapper-extension')">Download HTML</button>
+      <div class="study-export-sec">Notebook</div>
+      <button type="button" id="study-nb-open" role="menuitem" class="btn-mini study-export-item" onclick="window._vivStudyNotebookOpen(event, 'cbc-02-onlattice-wrapper-extension')">Open in browser</button>
+      <button type="button" id="study-dl-notebook" role="menuitem" class="btn-mini study-export-item" onclick="window._vivStudyNotebookFromCard(event, 'cbc-02-onlattice-wrapper-extension', 'cellbased-comparison-2017')">Download .ipynb</button>
+      <div class="study-export-sec">Figures</div>
+      <button type="button" id="study-fig-open" role="menuitem" class="btn-mini study-export-item" onclick="window._vivStudyFiguresOpen(event, 'cbc-02-onlattice-wrapper-extension')">Open in browser</button>
+      <button type="button" id="study-dl-figures" role="menuitem" class="btn-mini study-export-item" onclick="window._vivStudyFiguresFromCard(event, 'cbc-02-onlattice-wrapper-extension')">Download (zip)</button>
     </div>
   </span>
 </nav>
@@ -100,8 +119,18 @@ first-class observable?
 .study-kind-tag.study-kind-biological{background:#ecfdf5;color:#065f46}
 .study-kind-tag.study-kind-computational{background:#eff6ff;color:#1e40af}
 .study-kind-tag.study-kind-theoretical{background:#faf5ff;color:#6b21a8}
-.study-question-headline{margin:6px 0 0 0;font-size:1.05em;line-height:1.5;color:#1e293b;font-family:Georgia,"Times New Roman",serif}
+.study-question-headline{margin:2px 0 0 0;font-size:0.85em;line-height:1.35;color:#475569;font-family:Georgia,"Times New Roman",serif;padding-right:40px}
+/* Park the inline-edit ✎ in a reserved right gutter so it never lands over the
+   question text (the pencil is an absolutely-positioned child of the editable). */
+.study-question-headline>.ie-pencil{right:6px;top:1px}
+h1.study-title .study-name.ie-editable{padding-right:36px}
+h1.study-title .study-name>.ie-pencil{right:4px;top:6px}
 .study-question-headline .q-glyph{display:inline-block;font-size:0.78em;font-weight:700;font-family:ui-monospace,monospace;color:#64748b;background:#f1f5f9;padding:1px 7px;border-radius:4px;margin-right:6px;vertical-align:middle}
+/* Study Export menu — styled to match the investigation-level ↓ Export menu
+   exactly: grey uppercase section labels + full-width, left-aligned, stacked
+   text-link items (not inline pills). Mirrors walkthrough.js `_sec` + `_mi`. */
+.study-export-sec{padding:6px 8px 2px;font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#94a3b8}
+.study-export-item{display:block;width:100%;text-align:left;border:none;background:transparent}
 .status-detail-panel{margin:0;padding:2px 0;background:transparent;border:none;border-radius:0;font-size:0.92em}
 .status-detail-row{display:flex;align-items:center;gap:8px;padding:3px 0}
 .status-detail-axis{min-width:140px;color:#475569;font-size:0.9em}
@@ -239,6 +268,9 @@ first-class observable?
 /* findings */
 .findings-section{padding:14px 16px;background:#fafbff;border:1px solid #c7d2fe;border-radius:8px}
 .finding-card{padding:12px 14px;margin:10px 0;border:1px solid #e2e8f0;border-left:5px solid #6366f1;border-radius:6px;background:#fff}
+/* Brief highlight when an item is reached via a ?ev= evidence deep-link. */
+.ev-flash{animation:ev-flash-kf 1.9s ease-out;scroll-margin-top:12px}
+@keyframes ev-flash-kf{0%{box-shadow:0 0 0 3px #fbbf24}70%{box-shadow:0 0 0 3px rgba(251,191,36,0.45)}100%{box-shadow:0 0 0 0 rgba(251,191,36,0)}}
 .finding-card.finding-status-confirms{border-left-color:#10b981}
 .finding-card.finding-status-partial{border-left-color:#f59e0b}
 .finding-card.finding-status-contradicts{border-left-color:#dc2626}
@@ -547,7 +579,12 @@ first-class observable?
 
     <div class="ctr-block">
       <h2 class="overview-label ctr-h">Claim</h2>
-      <p class="ctr-text">All four reachable models (CP, OS, VT, VM) run the paper&#39;s differential-adhesion
+      <p class="ctr-text" data-edit-kind="study" data-edit-field="claim" data-edit-value="All four reachable models (CP, OS, VT, VM) run the paper&#39;s differential-adhesion
+sorting protocol through the ChasteCellSortingProcess wrapper and emit fractional
+boundary length, verified end-to-end through the process-bigraph composite runtime.
+VT runs deterministically: DiffusionForce is mechanically incompatible with its
+per-step remesh — a finding that feeds cbc-03.
+" data-edit-multiline data-edit-label="Claim">All four reachable models (CP, OS, VT, VM) run the paper&#39;s differential-adhesion
 sorting protocol through the ChasteCellSortingProcess wrapper and emit fractional
 boundary length, verified end-to-end through the process-bigraph composite runtime.
 VT runs deterministically: DiffusionForce is mechanically incompatible with its
@@ -560,12 +597,19 @@ per-step remesh — a finding that feeds cbc-03.
     <div class="ctr-block">
       <h2 class="overview-label ctr-h">Background</h2>
       <div class="ctr-meta">
-        <div class="ctr-meta-row"><span class="ctr-meta-k">Question</span> <span class="ctr-meta-item">Can pbg-chaste&#39;s ChasteSimulationProcess be extended to cover the four model classes the
+        <div class="ctr-meta-row"><span class="ctr-meta-k">Question</span> <span class="ctr-meta-item" data-edit-kind="study" data-edit-field="question" data-edit-value="Can pbg-chaste&#39;s ChasteSimulationProcess be extended to cover the four model classes the
+paper&#39;s sorting study needs and PyChaste can reach — Potts (CP), overlapping spheres (OS),
+Voronoi-with-ghost-nodes (VT) and vertex (VM) — emitting fractional boundary length as a
+first-class observable?
+" data-edit-multiline data-edit-label="Question">Can pbg-chaste&#39;s ChasteSimulationProcess be extended to cover the four model classes the
 paper&#39;s sorting study needs and PyChaste can reach — Potts (CP), overlapping spheres (OS),
 Voronoi-with-ghost-nodes (VT) and vertex (VM) — emitting fractional boundary length as a
 first-class observable?
 </span></div>
-        <div class="ctr-meta-row"><span class="ctr-meta-k">Hypothesis</span> <span class="ctr-meta-item">All four are reachable with mainline PyChaste classes alone. The probe confirmed every
+        <div class="ctr-meta-row"><span class="ctr-meta-k">Hypothesis</span> <span class="ctr-meta-item" data-edit-kind="study" data-edit-field="hypothesis" data-edit-value="All four are reachable with mainline PyChaste classes alone. The probe confirmed every
+required population, force, update rule, mesh generator and the HeterotypicBoundaryLengthWriter
+are bound; the work is wrapper architecture, not missing bindings.
+" data-edit-multiline data-edit-label="Hypothesis">All four are reachable with mainline PyChaste classes alone. The probe confirmed every
 required population, force, update rule, mesh generator and the HeterotypicBoundaryLengthWriter
 are bound; the work is wrapper architecture, not missing bindings.
 </span></div>
@@ -575,7 +619,10 @@ are bound; the work is wrapper architecture, not missing bindings.
 
     <div class="ctr-block">
       <h2 class="overview-label ctr-h">Model &amp; approach</h2>
-      <p class="ctr-text">Extend the wrapper to dispatch OnLatticeSimulation alongside OffLatticeSimulation, add Potts
+      <p class="ctr-text" data-edit-kind="study" data-edit-field="objective" data-edit-value="Extend the wrapper to dispatch OnLatticeSimulation alongside OffLatticeSimulation, add Potts
+and ghost-node populations, two-cell-type labelling, the differential-adhesion forces and
+update rules, and surface heterotypic boundary length on an output port.
+" data-edit-multiline data-edit-label="Objective">Extend the wrapper to dispatch OnLatticeSimulation alongside OffLatticeSimulation, add Potts
 and ghost-node populations, two-cell-type labelling, the differential-adhesion forces and
 update rules, and surface heterotypic boundary length on an output port.
 </p>
@@ -594,7 +641,8 @@ update rules, and surface heterotypic boundary length on an output port.
 
     <div class="ctr-block">
       <h2 class="overview-label ctr-h">Result</h2>
-      <p class="ctr-text"></p>
+      
+      <p class="ctr-text" data-edit-kind="study" data-edit-field="result" data-edit-value="" data-edit-multiline data-edit-label="Result"></p>
       
       
       <div class="ov-metrics">
@@ -664,6 +712,8 @@ by spikes/spike_sorting.py at 5x5 cells, t=0.2, before any wrapper code was writ
             
             
             
+            
+            
           </div>
         </details>
       </div>
@@ -701,6 +751,8 @@ and the paper&#39;s 10h relaxation phase is what conditions it.
               
               
             </div>
+            
+            
             
             
             
@@ -749,6 +801,8 @@ RAMEmitter.
               
               
             </div>
+            
+            
             
             
             
@@ -807,6 +861,8 @@ division and is immune.
             
             
             
+            
+            
           </div>
         </details>
       </div>
@@ -854,6 +910,8 @@ RandomMotionForce), set viscosity=1 and AbsoluteTemperature = xi*radius/C.
             
             
             
+            
+            
           </div>
         </details>
       </div>
@@ -892,6 +950,8 @@ The label still drives the C++ physics; only the reported labels[] array uses th
               
               
             </div>
+            
+            
             
             
             
@@ -955,12 +1015,23 @@ The label still drives the C++ physics; only the reported labels[] array uses th
 
 
 <section class="study-tab-panel" data-kind="compose" id="panel-compose" hidden>
-  <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px;">
-    <h2 class="overview-label" style="margin:0">Model composition</h2>
-    
-    <button type="button" class="btn-mini" onclick="window._vivStudyNotebookFromCard(event, 'cbc-02-onlattice-wrapper-extension', 'cellbased-comparison-2017')" title="Download a runnable Jupyter notebook for THIS study — its composite + editable parameters + figures">↓ notebook</button>
+  
+  <div class="model-subtabs" role="tablist" aria-label="Model sections">
+    <button type="button" class="model-subtab active" data-modelsub="composition" role="tab" aria-selected="true" onclick="_setModelSubtab('composition')">Composition</button>
+    <button type="button" class="model-subtab" data-modelsub="loom" role="tab" aria-selected="false" onclick="_setModelSubtab('loom')">Loom</button>
+    <button type="button" class="model-subtab" data-modelsub="variants" role="tab" aria-selected="false" onclick="_setModelSubtab('variants')">Variants</button>
+    <button type="button" class="model-subtab" data-modelsub="interventions" role="tab" aria-selected="false" onclick="_setModelSubtab('interventions')">Interventions</button>
+    <button type="button" class="model-subtab" data-modelsub="readouts" role="tab" aria-selected="false" onclick="_setModelSubtab('readouts')">Readouts</button>
   </div>
 
+  
+  <div class="model-subpanel" data-modelsubpanel="loom" hidden>
+    <div id="model-loom-mount" class="model-loom-mount">
+      <div class="viv-loading"><span class="viv-loading-spin" aria-hidden="true"></span><span>Loading the interactive model diagram…</span></div>
+    </div>
+  </div>
+
+  <div class="model-subpanel active" data-modelsubpanel="composition">
   
   
   <div id="model-composite-cards" class="model-composite-cards" data-study="cbc-02-onlattice-wrapper-extension"
@@ -1146,17 +1217,85 @@ The label still drives the C++ physics; only the reported labels[] array uses th
 
   
   
-
   
 
   
-  
-  
-  
-
-
 
   
+  
+  
+  
+  </div>
+
+  
+  <div class="model-subpanel" data-modelsubpanel="variants" hidden>
+  <div class="overview-section" id="study-variants-section">
+    <p class="msub-intro">A <strong>variant</strong> is a copy of a baseline model with a few parameters changed, run and compared against the baseline. Everything else stays fixed.</p>
+    
+    <div class="msub-empty">No variants yet. Add one below to perturb the baseline and compare against it.</div>
+    
+    
+    <form class="study-variant-add-form msub-addcard" onsubmit="return _submitStudyVariantAdd(this)">
+      <div class="msub-addcard-title">Add a variant</div>
+      <div class="msub-field-grid">
+        <label class="msub-field">
+          <span class="msub-lbl">Name</span>
+          <input name="name" required pattern="[a-zA-Z0-9_-]+" placeholder="hi-dnaa" class="msub-input mono">
+          <span class="msub-hint">letters, numbers, - and _</span>
+        </label>
+        <label class="msub-field">
+          <span class="msub-lbl">Based on</span>
+          <select name="base_composite" class="msub-input">
+            <option value="cp-sorting">cp-sorting</option><option value="os-sorting">os-sorting</option><option value="vt-sorting">vt-sorting</option><option value="vm-sorting">vm-sorting</option>
+          </select>
+          <span class="msub-hint">the baseline this variant perturbs</span>
+        </label>
+        <label class="msub-field msub-field-wide">
+          <span class="msub-lbl">Parameter overrides</span>
+          <input name="overrides" placeholder='{"k_synth": 2.0}' class="msub-input mono">
+          <span class="msub-hint">JSON object of parameter → value; leave blank for none</span>
+        </label>
+      </div>
+      <div class="msub-addcard-foot">
+        <button type="submit" class="action-btn primary">+ Add variant</button>
+        <span class="study-variant-add-status msub-status"></span>
+      </div>
+    </form>
+    
+  </div>
+  </div>
+
+  
+  <div class="model-subpanel" data-modelsubpanel="interventions" hidden>
+  <div class="overview-section" id="study-interventions-section">
+    <p class="msub-intro">An <strong>intervention</strong> is a named, described perturbation applied in this study (e.g. a knockout) — the conceptual change you are testing, documented alongside the model.</p>
+    
+    <div class="msub-empty">No interventions yet. Add one below.</div>
+    
+    <form class="study-intervention-add-form msub-addcard" onsubmit="return _submitStudyInterventionAdd(this)">
+      <div class="msub-addcard-title">Add an intervention</div>
+      <div class="msub-field-grid">
+        <label class="msub-field">
+          <span class="msub-lbl">Name</span>
+          <input name="name" required pattern="[a-zA-Z0-9_-]+" placeholder="knockout-dnaA" class="msub-input mono">
+          <span class="msub-hint">letters, numbers, - and _</span>
+        </label>
+        <label class="msub-field msub-field-wide">
+          <span class="msub-lbl">Description</span>
+          <input name="description" placeholder="what the intervention does" class="msub-input">
+          <span class="msub-hint">a short, human-readable summary</span>
+        </label>
+      </div>
+      <div class="msub-addcard-foot">
+        <button type="submit" class="action-btn primary">+ Add intervention</button>
+        <span class="study-intervention-add-status msub-status"></span>
+      </div>
+    </form>
+  </div>
+  </div>
+
+  
+  <div class="model-subpanel" data-modelsubpanel="readouts" hidden>
   <div class="overview-section" id="model-readouts-section">
     <h3>Readouts</h3>
 
@@ -1185,6 +1324,7 @@ The label still drives the C++ physics; only the reported labels[] array uses th
     
   </div>
   </div>
+  </div>
 
 </section>
 
@@ -1204,7 +1344,6 @@ The label still drives the C++ physics; only the reported labels[] array uses th
   <button type="button" id="study-run-current-spec" class="action-btn" title="Run this study's CURRENT baseline spec (POST /api/study-run-baseline) as a brand-new run">▶ Run current spec</button>
   <button type="button" id="study-reproduce" class="btn-mini" title="Replay this study's most recent run's RECORDED manifest verbatim (POST /api/study-reproduce) — ignores any study.yaml edits made since">↻ Reproduce</button>
   
-  <button type="button" id="study-run-composite" class="btn-mini" title="Dispatch a specific process-bigraph composite_id to the remote compute backend (pbg-native multi_node/mbp, or the Nextflow campaign path) — advanced, independent of this study's own pinned baseline">⚙ Dispatch composite</button>
 </div>
 
 <div class="overview-section" id="simulations-section">
@@ -1219,6 +1358,12 @@ The label still drives the C++ physics; only the reported labels[] array uses th
 <div class="overview-section" id="results-section">
   
   <div id="results-summary" data-study="cbc-02-onlattice-wrapper-extension" style="margin:0 0 16px"></div>
+
+  
+  <div id="gate-results-section" data-study="cbc-02-onlattice-wrapper-extension" style="margin:0 0 22px" hidden>
+    <h4>Gate results <span class="muted" style="font-size:0.8em;font-weight:normal">— each acceptance test's value, graded from run data</span></h4>
+    <div id="gate-results"></div>
+  </div>
 
   <h4>Latest run preview <span class="muted" style="font-size:0.8em;font-weight:normal">— downsampled sparkline + first/last/min/max per store</span></h4>
   <div id="results-preview" data-study="cbc-02-onlattice-wrapper-extension">
@@ -1755,6 +1900,83 @@ mesh-based Delaunay population.
   </div>
 
   
+  <div class="overview-section" id="study-findings-authoring">
+    <h2 class="overview-label">Record a finding</h2>
+    
+    <ul class="synthesis-list" style="margin:0 0 12px">
+      
+      <li style="display:flex;align-items:flex-start;gap:8px">
+        
+        <span>All four reachable models (CP, OS, VT, VM) construct with the paper&#39;s exact
+differential-adhesion configuration and emit heterotypicboundary.dat — verified end-to-end
+by spikes/spike_sorting.py at 5x5 cells, t=0.2, before any wrapper code was written.
+ <span class="muted small">(supported)</span></span>
+      </li>
+      
+      <li style="display:flex;align-items:flex-start;gap:8px">
+        
+        <span>OS fractional boundary length is numerically DEGENERATE on the pristine honeycomb lattice,
+and the paper&#39;s 10h relaxation phase is what conditions it.
+ <span class="muted small">(supported)</span></span>
+      </li>
+      
+      <li style="display:flex;align-items:flex-start;gap:8px">
+        
+        <span>Implemented: ChasteCellSortingProcess + _sorting_server.py drive all four models
+through the real engine. 11/11 tests pass (Docker-gated), and the cell_sorting
+composite runs end-to-end through process-bigraph, emitting fractional_length via
+RAMEmitter.
+ <span class="muted small">(supported)</span></span>
+      </li>
+      
+      <li style="display:flex;align-items:flex-start;gap:8px">
+        
+        <span>REFUTATION (feeds cbc-03): mainline DiffusionForce cannot substitute for the paper&#39;s
+RandomMotionForce in the VT model. MeshBasedCellPopulation re-triangulates every
+timestep, creating fresh nodes with NO radius attribute; DiffusionForce divides its
+force by node radius and throws on radius 0, whereas RandomMotionForce has no radius
+division and is immune.
+ <span class="muted small">(supported)</span></span>
+      </li>
+      
+      <li style="display:flex;align-items:flex-start;gap:8px">
+        
+        <span>DiffusionForce has no scaling setter; scaling is derived as C*T/viscosity with
+C = 2.636845e-8 (measured). To hit scaling = xi*radius (so per-node D = xi, matching
+RandomMotionForce), set viscosity=1 and AbsoluteTemperature = xi*radius/C.
+ <span class="muted small">(supported)</span></span>
+      </li>
+      
+      <li style="display:flex;align-items:flex-start;gap:8px">
+        
+        <span>CellLabel has no Python read-back (HasCellProperty and the property collection are
+unbound), so per-cell labels are tracked by the stable cell id set at labelling time.
+The label still drives the C++ physics; only the reported labels[] array uses the id set.
+ <span class="muted small">(supported)</span></span>
+      </li>
+      
+    </ul>
+    
+    <form class="study-finding-add-form" onsubmit="return _submitStudyFindingAdd(this)" style="display:flex;flex-direction:column;gap:8px;max-width:680px">
+      <textarea name="statement" required rows="2" placeholder="What did this study show? (one sentence)"
+                style="font-size:0.9em;padding:6px 8px;resize:vertical"></textarea>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+        <label style="font-size:0.78em;color:#475569">Status<br>
+          <select name="status" style="font-size:0.82em;padding:3px 6px">
+            <option value="novel">novel</option>
+            <option value="confirms">confirms literature</option>
+            <option value="partial">partial</option>
+            <option value="contradicts">contradicts</option>
+          </select></label>
+        <label style="font-size:0.78em;color:#475569;flex:1;min-width:200px">Why / mechanism (optional)<br>
+          <input name="explanation" style="width:100%;font-size:0.82em;padding:3px 6px"></label>
+        <button type="submit" class="action-btn" style="font-size:0.82em">+ Add finding</button>
+      </div>
+    </form>
+    <div class="study-finding-add-status muted" style="font-size:0.8em;margin-top:4px"></div>
+  </div>
+
+  
   <div class="overview-section"><h2 class="overview-label">Follow-ups &amp; decisions</h2>
 
     
@@ -1787,11 +2009,13 @@ mesh-based Delaunay population.
 </section>
 
 </main>
-<script>window.__DASH_CONFIG__ = { mode: "snapshot", interactiveUrl: "https://github.com/vivarium-collective/viva-chaste", basePath: "/viva-chaste/workbench", inputsDownloadBase: "https://github.com/vivarium-collective/viva-chaste/raw/main", provenance: {"repo_slug": "vivarium-collective/viva-chaste", "repo_url": "https://github.com/vivarium-collective/viva-chaste", "commit": "a01596bbe081409c5bc5c3581b25c44f6874f89d", "commit_url": "https://github.com/vivarium-collective/viva-chaste/commit/a01596bbe081409c5bc5c3581b25c44f6874f89d", "branch": "main", "lockfile": "uv.lock@b9c0830a100d", "generated_at": "2026-10-28 01:22 UTC"} };</script>
+<script>window.__DASH_CONFIG__ = { mode: "snapshot", interactiveUrl: "https://github.com/vivarium-collective/viva-chaste", basePath: "/viva-chaste/workbench", inputsDownloadBase: "https://github.com/vivarium-collective/viva-chaste/raw/main/workspace", provenance: {"repo_slug": "vivarium-collective/viva-chaste", "repo_url": "https://github.com/vivarium-collective/viva-chaste", "commit": "d3b0bcfbb997b224ec491ad75853cffd5f39b579", "commit_url": "https://github.com/vivarium-collective/viva-chaste/commit/d3b0bcfbb997b224ec491ad75853cffd5f39b579", "branch": "main", "lockfile": "uv.lock@7d232ac41e52", "generated_at": "2026-11-23 02:21 UTC"} };</script>
 <script src="/viva-chaste/workbench/assets/data-source.js"></script>
+<script src="/viva-chaste/workbench/assets/backend-features.js"></script>
 <script src="/viva-chaste/workbench/assets/toast.js"></script>
 <script>
 window._studyName = "cbc-02-onlattice-wrapper-extension";
+window.__STUDY_INVESTIGATION__ = "cellbased-comparison-2017";  // owning investigation (feedback save routing)
 window._study = null;  // populated by _bootstrapStudy() in study-detail.js
 
 // Save handler for the Conditions → Model settings editable rows.
@@ -1919,7 +2143,14 @@ window._seedFollowupProposal = _seedFollowupProposal;
 <script src="/viva-chaste/workbench/assets/checklist-select.js"></script>
 <script src="/viva-chaste/workbench/assets/progress-track.js"></script>
 <script src="/viva-chaste/workbench/assets/comparison-view.js"></script>
+<!-- The backend launch plugin's script (remote-pinned dispatch + the
+     "Dispatch composite" panel), quarantined out of study-detail.js. Loaded
+     BEFORE it: study-detail.js calls window.SmsLaunch.mount() while it loads,
+     and runs local-only when the file is absent. -->
+<script src="/viva-chaste/workbench/assets/sms-launch.js"></script>
 <script src="/viva-chaste/workbench/assets/study-detail.js"></script>
+<script src="/viva-chaste/workbench/assets/study-feedback.js"></script>
+<script src="/viva-chaste/workbench/assets/inline-edit.js"></script>
 <script>
 // Re-assert the refresh-aware seed handlers AFTER study-detail.js (which
 // defines its own navigate-away _seedFollowupStudy). The embedded
@@ -1929,7 +2160,7 @@ window._seedFollowupProposal = _seedFollowupProposal;
 </script>
 <script>
 (function () {
-  // Task 8: the Configure & Run mount and the remote-run (smsvpctest) panel
+  // Task 8: the Configure & Run mount and the remote-run panel
   // were both removed from the Simulate tab — launching now lives entirely
   // in the header buttons (Reproduce / Run current spec). This block used
   // to also mount ConfigureRun into the (now-deleted) mount div and, in an
