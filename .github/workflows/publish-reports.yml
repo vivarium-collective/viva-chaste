@@ -8,7 +8,7 @@
 # re-scaffolding, or by copying the current source from
 #   vivarium-collective/viva-template/template/.github/workflows/<template>
 # template: publish-reports.yml
-# sha256: f62fab75fe45ba0b9fc752b589e7a27779074bd7e7b2a4df6b0c19daf0c2b465
+# sha256: 0ca08d3e69afe52138d97a21b897ee1e7e8ad2ff84f2a6eb8ba65626f9aa8a46
 # <<< viva-template-provenance <<<
 
 name: Publish investigation reports
@@ -47,7 +47,31 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
+      # >>> workspace-local >>>
+      # Repo-local CI steps preserved across viva-template syncs by
+      # scripts/sync-workspace-workflows.py. Add workspace-specific steps
+      # (e.g. simulator system-dep installs) between these markers; the
+      # rest of this file is regenerated from viva-template.
+      - name: Install latest vivarium-workbench (for the report generator)
+        # The report script imports vivarium_workbench.lib.investigation_report.
+        # `uv sync` does not reliably install the git-sourced workbench into the
+        # run env, and `uv run` re-syncs to uv.lock and drops any ad-hoc install —
+        # which is why this job failed with "No module named 'vivarium_workbench'".
+        # Install it explicitly from main (the most recent workbench), AFTER the
+        # Playwright `uv run` (so that re-sync can't drop it) and run the generate
+        # step via the activated venv (not `uv run`). Mirrors v2ecoli's publish.
+        run: uv pip install --reinstall-package vivarium-workbench "vivarium-workbench @ git+https://github.com/vivarium-collective/vivarium-workbench.git@main"
+
+      # <<< workspace-local <<<
       - uses: actions/checkout@v4
+        with:
+          # Workspaces commonly vendor ecosystem deps as git submodules under
+          # external/ and declare them as editable path deps in pyproject
+          # ([tool.uv.sources] … { path = "external/<pkg>", editable = true }).
+          # Without this, the submodule dir is empty, so `uv sync` fails with
+          # "Failed to generate package metadata for <pkg>==0.0.0". A repo with
+          # no submodules treats this as a harmless no-op.
+          submodules: recursive
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -65,16 +89,6 @@ jobs:
           uv pip install playwright
           uv run playwright install --with-deps chromium
 
-      - name: Install latest vivarium-workbench (for the report generator)
-        # The report script imports vivarium_workbench.lib.investigation_report.
-        # `uv sync` does not reliably install the git-sourced workbench into the
-        # run env, and `uv run` re-syncs to uv.lock and drops any ad-hoc install —
-        # which is why this job failed with "No module named 'vivarium_workbench'".
-        # Install it explicitly from main (the most recent workbench), AFTER the
-        # Playwright `uv run` (so that re-sync can't drop it) and run the generate
-        # step via the activated venv (not `uv run`). Mirrors v2ecoli's publish.
-        run: uv pip install --reinstall-package vivarium-workbench "vivarium-workbench @ git+https://github.com/vivarium-collective/vivarium-workbench.git@main"
-
       - name: Generate investigation reports
         id: gen
         # Serves the dashboard, drives each investigation's report export
@@ -82,10 +96,7 @@ jobs:
         # Keep going on a per-report failure so good reports still publish.
         run: |
           set +e
-          # Activate the venv rather than `uv run` — `uv run` re-syncs to uv.lock
-          # and would undo the ad-hoc vivarium-workbench@main install above.
-          source .venv/bin/activate
-          python scripts/publish_investigation_reports.py \
+          uv run python scripts/publish_investigation_reports.py \
             --workspace . --out reports/published
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
