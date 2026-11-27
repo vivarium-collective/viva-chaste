@@ -15,11 +15,10 @@ from pbg_chaste.sorting_analysis import (
     read_dat,
 )
 
-_RAW = (
-    Path(__file__).resolve().parent.parent
-    / "workspace/investigations/cellbased-comparison-2017"
-    / "studies/cbc-02-onlattice-wrapper-extension/spikes/raw"
-)
+# The cbc-02 spike .dat fixtures live alongside these tests (copied here when the
+# investigation moved to viva-chaste-studies) so the package test suite stays
+# self-contained after the sim/studies split.
+_RAW = Path(__file__).resolve().parent / "data"
 
 
 def test_read_dat_computes_fractional_length():
